@@ -1,0 +1,35 @@
+#!/bin/bash
+
+chroot=/chroot/slack32
+
+chroot_start(){
+	mount -o bind /proc ${chroot}/proc
+	mount -o bind /dev ${chroot}/dev
+	. chroot_local_start
+}
+
+chroot_stop(){
+	umount ${chroot}/proc
+	umount ${chroot}/dev
+	. chroot_local_stop
+}
+
+chroot_usage(){
+	echo "Usage: $1 start|stop|restart"
+}
+
+case "$1" in
+	"start")
+		chroot_start
+		;;
+	"stop")
+		chroot_stop
+		;;
+	"restart")
+		chroot_stop
+		chroot_start
+		;;
+	*)
+		chroot_usage $0
+		;;
+esac

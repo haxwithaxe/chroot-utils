@@ -1,0 +1,10 @@
+#!/bin/bash
+
+###############################################################################
+# unmount stuff mounted to save space
+###############################################################################
+
+# unmount 32bit slackware repo
+umount ${chrootdir}/var/lib/sbopkg/SBo-git
+umount ${chrootdir}/var/cache/sbopkg
+

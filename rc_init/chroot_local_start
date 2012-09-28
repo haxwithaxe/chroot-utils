@@ -1,0 +1,10 @@
+#!/bin/bash
+
+###############################################################################
+# mount slacbuild stuff in the chroot to save diskspace
+###############################################################################
+
+# mount 32bit slackware repo in the chroot to save on network traffic and diskspace
+mount -o bind /var/lib/sbopkg/SBo-git ${chrootdir}/var/lib/sbopkg/SBo-git
+mount -o bind /var/cache/sbopkg ${chrootdir}/var/cache/sbopkg
+
