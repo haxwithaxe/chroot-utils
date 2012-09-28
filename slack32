@@ -1,0 +1,9 @@
+#!/bin/bash
+
+chroot_dir=/chroot/slack32
+chroot_userspec=root:root
+chroot_groups=adm
+options=""
+
+sudo chroot $options $chroot_dir $*
+
