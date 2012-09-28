@@ -1,4 +1,3 @@
 #!/bin/bash
 
-slack32 DISPLAY=:0.0 dbus-launch skype
-
+slack32 skype32
