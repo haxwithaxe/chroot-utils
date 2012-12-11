@@ -1,9 +1,15 @@
 #!/bin/bash
 
 chroot_dir=/chroot/slack32
-chroot_userspec=root:root
-chroot_groups=adm
-options=""
 
-sudo chroot $options $chroot_dir $*
+if [ -n "${Xexport}" ] && $Xexport ;then
+	xhost +localhost
+fi
 
+if [ -n "${CHROOT_USER}" ] ;then
+	sudo chroot --userspec=`id -u ${CHROOT_USER}` $chroot_dir $*
+else
+	sudo chroot $chroot_dir $*
+fi
+
+echo done

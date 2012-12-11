@@ -1,17 +1,19 @@
 #!/bin/bash
 
+cwd=`dirname $0`
+
 chroot=/chroot/slack32
 
 chroot_start(){
 	mount -o bind /proc ${chroot}/proc
 	mount -o bind /dev ${chroot}/dev
-	. chroot_local_start
+	. ${cwd}/chroot_local_start
 }
 
 chroot_stop(){
 	umount ${chroot}/proc
 	umount ${chroot}/dev
-	. chroot_local_stop
+	. ${cwd}/chroot_local_stop
 }
 
 chroot_usage(){

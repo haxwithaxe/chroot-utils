@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -n "${CHROOT_USER}" ] ;then
+	slack32 shell32 "$CHROOT_USER" $*
+else
+	slack32 shell32 "`whoami`" $*
+fi

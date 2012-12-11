@@ -1,0 +1,8 @@
+#!/bin/bash
+cmd=$@
+if [ -n "${2}" ] ;then
+	su $1 -c "${cmd[*]}"
+else
+	su $1
+fi
+
