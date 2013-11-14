@@ -1,6 +1,4 @@
 #!/bin/bash
 
 xhost +localhost
-echo `whoami`
-CHROOT_USER=`whoami`
-slack32 skype32
+schroot -c slack32 dbus-launch skype

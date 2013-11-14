@@ -1,6 +1,6 @@
 #!/bin/bash
 
-chroot_dir=/chroot/slack32
+chroot_dir=/srv/chroot/slack32
 
 if [ -n "${Xexport}" ] && $Xexport ;then
 	xhost +localhost
